@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E&D COLLISION - Expert Auto Body Repair | Oklahoma City</title>
+    <meta name="description" content="E&D COLLISION - Professional auto body repair and collision services in Oklahoma City. Expert craftsmanship, quality service.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #2E5BA8;
+            --secondary-blue: #1E3A6B;
+            --accent-blue: #3B7DD6;
+            --dark-gray: #2A2A2A;
+            --medium-gray: #4A4A4A;
+            --light-gray: #E8E8E8;
+            --white: #FFFFFF;
+            --silver: #C0C0C0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        /* Top Contact Bar */
+        .top-bar {
+            background: var(--secondary-blue);
+            color: var(--white);
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--silver);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--secondary-blue) 0%, var(--primary-blue) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 20px;
+            margin-top: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('E&D-COLLISION.png');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            letter-spacing: 2px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-blue);
+        }
+
+        .btn-primary:hover {
+            background: var(--light-gray);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 3px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--secondary-blue);
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .service-card h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+
+        /* Hours Section */
+        .hours-location {
+            background: var(--white);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .hours-box, .location-box {
+            background: var(--light-gray);
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .hours-box h3, .location-box h3 {
+            color: var(--secondary-blue);
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--silver);
+            font-size: 1.1rem;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: var(--secondary-blue);
+        }
+
+        .time {
+            color: var(--medium-gray);
+        }
+
+        .location-box p {
+            font-size: 1.1rem;
+            color: var(--medium-gray);
+            margin-bottom: 15px;
+        }
+
+        .location-box a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .location-box a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--light-gray);
+            padding: 60px 20px;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Square Payment Section */
+        .payment-section {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .square-link {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .square-link:hover {
+            background: var(--accent-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background: var(--light-gray);
+        }
+
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--white);
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .reviewer-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--secondary-blue);
+        }
+
+        .stars {
+            color: #FFD700;
+            font-size: 1.3rem;
+            letter-spacing: 2px;
+        }
+
+        .review-body {
+            color: var(--medium-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .show-more-btn {
+            display: block;
+            margin: 30px auto 0;
+            padding: 15px 40px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .show-more-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Contact Form */
+        .contact {
+            background: var(--white);
+        }
+
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--light-gray);
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--silver);
+            background: var(--white);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Social Links */
+        .social-section {
+            background: var(--secondary-blue);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .social-section h2 {
+            color: var(--white);
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 15px 40px;
+            background: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .social-link:hover {
+            background: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--white);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .top-bar {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container iframe {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Contact Bar -->
+    <div class="top-bar">
+        <a href="tel:+14057080328">📞 Call Now: (405) 708-0328</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>E&D COLLISION</h1>
+            <h2>Expert Auto Body Repair & Collision Services</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 20px;">Quality Craftsmanship You Can Trust</p>
+            <div class="hero-buttons">
+                <a href="tel:+14057080328" class="btn btn-primary">Call Now</a>
+                <a href="#contact" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">Scroll Down ↓</div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Collision Repair</h3>
+                <p>Expert collision repair services to restore your vehicle to pre-accident condition with precision and care.</p>
+            </div>
+            <div class="service-card">
+                <h3>Auto Body Repair</h3>
+                <p>Professional auto body repair using state-of-the-art equipment and techniques for superior results.</p>
+            </div>
+            <div class="service-card">
+                <h3>Paint Services</h3>
+                <p>High-quality paint matching and application to ensure a flawless, factory-perfect finish.</p>
+            </div>
+            <div class="service-card">
+                <h3>Dent Removal</h3>
+                <p>Expert dent removal and body work to restore your vehicle's appearance and structural integrity.</p>
+            </div>
+            <div class="service-card">
+                <h3>Frame Straightening</h3>
+                <p>Advanced frame straightening technology to ensure your vehicle's safety and alignment.</p>
+            </div>
+            <div class="service-card">
+                <h3>Insurance Claims</h3>
+                <p>We work with all major insurance companies to make your repair process smooth and hassle-free.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hours & Location -->
+    <section class="hours-location" id="hours">
+        <h2 class="section-title">Hours & Location</h2>
+        <div class="info-grid">
+            <div class="hours-box">
+                <h3>Business Hours</h3>
+                <ul class="hours-list">
+                    <li><span class="day">Monday</span> <span class="time">9 AM – 7 PM</span></li>
+                    <li><span class="day">Tuesday</span> <span class="time">9 AM – 7 PM</span></li>
+                    <li><span class="day">Wednesday</span> <span class="time">9 AM – 7 PM</span></li>
+                    <li><span class="day">Thursday</span> <span class="time">9 AM – 7 PM</span></li>
+                    <li><span class="day">Friday</span> <span class="time">9 AM – 7 PM</span></li>
+                    <li><span class="day">Saturday</span> <span class="time">9 AM – 2 PM</span></li>
+                    <li><span class="day">Sunday</span> <span class="time">Closed</span></li>
+                </ul>
+            </div>
+            <div class="location-box">
+                <h3>Visit Us</h3>
+                <p><strong>Address:</strong><br>626 SW 29th St<br>Oklahoma City, OK 73109</p>
+                <p><strong>Phone:</strong><br><a href="tel:+14057080328">(405) 708-0328</a></p>
+                <p><strong>Email:</strong><br><a href="mailto:e.n.d.collision@gmail.com">e.n.d.collision@gmail.com</a></p>
+                <p><a href="https://www.google.com/maps/place/E%26D+COLLISION/@35.4352399,-97.5243907,17z/data=!3m1!5s0x87b2114ca9a4697d:0x5ce90f1bd9e4e3d4!4m15!1m8!3m7!1s0x87b2117edc7f75d5:0xa091e2141c193f58!2sE%26D+COLLISION!8m2!3d35.4350008!4d-97.5251628!10e5!16s%2Fg%2F11rjyxkvdh!3m5!1s0x87b2117edc7f75d5:0xa091e2141c193f58!8m2!3d35.4350008!4d-97.5251628!16s%2Fg%2F11rjyxkvdh?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" style="color: var(--primary-blue); font-weight: 700; font-size: 1.1rem;">→ Get Directions on Google Maps</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <div class="map-section">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3250.7896725518985!2d-97.52439066639221!3d35.4352399!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87b2117edc7f75d5%3A0xa091e2141c193f58!2sE%26D%20COLLISION!5e0!3m2!1sen!2sus!4v1762038676329!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+
+    <!-- Square Payment Section -->
+    <section class="payment-section" id="payment">
+        <h2 class="section-title">Pay Online</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 30px; color: var(--medium-gray);">Conveniently pay for your services using Square</p>
+        <!-- REPLACE 'YOUR_LOCATION_ID' BELOW WITH YOUR ACTUAL SQUARE LOCATION ID -->
+        <a href="https://squareup.com/appointments/book/YOUR_LOCATION_ID" target="_blank" class="square-link">Pay with Square</a>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <h2 class="section-title">Customer Reviews</h2>
+        <div class="reviews-container" id="reviewsContainer"></div>
+        <button class="show-more-btn hidden" id="showMoreBtn" onclick="showMoreReviews()"></button>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Get a Free Quote</h2>
+        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="vehicle">Vehicle Information</label>
+                <input type="text" id="vehicle" name="vehicle" placeholder="Year, Make, Model">
+            </div>
+            <div class="form-group">
+                <label for="message">Describe Your Repair Needs *</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Request Quote</button>
+        </form>
+        <p style="text-align: center; margin-top: 30px; color: var(--medium-gray); font-size: 1.1rem;">
+            Or call us directly: <a href="tel:+14057080328" style="color: var(--primary-blue); font-weight: 700;">(405) 708-0328</a>
+        </p>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <h2>Connect With Us</h2>
+        <div class="social-links">
+            <a href="https://www.facebook.com/people/ED-Collision/100075850727055/" target="_blank" class="social-link">Facebook</a>
+            <a href="https://www.google.com/maps/place/E%26D+COLLISION/@35.4352399,-97.5243907,17z/data=!3m1!5s0x87b2114ca9a4697d:0x5ce90f1bd9e4e3d4!4m15!1m8!3m7!1s0x87b2117edc7f75d5:0xa091e2141c193f58!2sE%26D+COLLISION!8m2!3d35.4350008!4d-97.5251628!10e5!16s%2Fg%2F11rjyxkvdh!3m5!1s0x87b2117edc7f75d5:0xa091e2141c193f58!8m2!3d35.4350008!4d-97.5251628!16s%2Fg%2F11rjyxkvdh?entry=ttu&g_ep=EgoyMDI1MTAyOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" class="social-link">Google Reviews</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 E&D COLLISION. All Rights Reserved.</p>
+        <p>626 SW 29th St, Oklahoma City, OK 73109 | <a href="tel:+14057080328">(405) 708-0328</a></p>
+        <p><a href="mailto:e.n.d.collision@gmail.com">e.n.d.collision@gmail.com</a></p>
+        <p style="margin-top: 20px; font-size: 0.9rem;">Professional Auto Body Repair & Collision Services in Oklahoma City</p>
+    </footer>
+
+    <script>
+        // Reviews Array - EASY TO ADD MORE REVIEWS HERE
+        const reviews = [
+            { name: "Customer 1", rating: 5, body: "" },
+            { name: "Customer 2", rating: 5, body: "" },
+            { name: "Customer 3", rating: 5, body: "" },
+            { name: "Customer 4", rating: 5, body: "" },
+            { name: "Customer 5", rating: 5, body: "" },
+            { name: "Customer 6", rating: 5, body: "" }
+        ];
+
+        const reviewsPerPage = 6;
+        let currentlyShowing = 0;
+
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Show initial reviews
+            const reviewsToShow = Math.min(reviewsPerPage, reviews.length);
+            currentlyShowing = reviewsToShow;
+            
+            for (let i = 0; i < reviewsToShow; i++) {
+                container.appendChild(createReviewCard(reviews[i]));
+            }
+            
+            // Update button
+            updateShowMoreButton();
+        }
+
+        function createReviewCard(review) {
+            const card = document.createElement('div');
+            card.className = 'review-card';
+            
+            const stars = '★'.repeat(review.rating);
+            
+            card.innerHTML = `
+                <div class="review-header">
+                    <div class="reviewer-name">${review.name}</div>
+                    <div class="stars">${stars}</div>
+                </div>
+                ${review.body ? `<div class="review-body">${review.body}</div>` : ''}
+            `;
+            
+            return card;
+        }
+
+        function showMoreReviews() {
+            const container = document.getElementById('reviewsContainer');
+            const remaining = reviews.length - currentlyShowing;
+            const toShow = Math.min(reviewsPerPage, remaining);
+            
+            for (let i = currentlyShowing; i < currentlyShowing + toShow; i++) {
+                container.appendChild(createReviewCard(reviews[i]));
+            }
+            
+            currentlyShowing += toShow;
+            updateShowMoreButton();
+        }
+
+        function updateShowMoreButton() {
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            const remaining = reviews.length - currentlyShowing;
+            
+            if (remaining > 0) {
+                showMoreBtn.classList.remove('hidden');
+                showMoreBtn.textContent = `Show ${remaining} More (Total ${reviews.length})`;
+            } else {
+                showMoreBtn.classList.add('hidden');
+            }
+        }
+
+        // Initialize reviews on page load
+        document.addEventListener('DOMContentLoaded', renderReviews);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 60;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
